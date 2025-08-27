@@ -4,19 +4,19 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>M.B.F.C.</title>
     <!-- Import CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
 <body>
     <div class="login-box">
-        <h2>Login</h2>
+        <h1>Login</h1>
         <form action="LoginServlet" method="post">
             <input type="text" name="username" placeholder="Username" required><br>
             <input type="password" name="password" placeholder="Password" required><br>
             <input type="submit" value="Login">
         </form>
-        // JSP Section for displaying errors
+        <% // JSP code to handle session management %>
         <%-- Placeholder for errors (later backend will pass ?error=true) --%>
         <%
             String error = request.getParameter("error");
