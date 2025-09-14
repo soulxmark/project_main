@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class DBConnection {
     // Update these for your local environment
-    private static final String URL = "jdbc:postgresql://localhost:5432/financialdb";
+    private static final String URL = "jdbc:postgresql://localhost:5432/admin_consodb";
     private static final String USER = "postgres";
-    private static final String PASS = "yourpassword";
+    private static final String PASS = "admin45";
 
     static {
         try {
