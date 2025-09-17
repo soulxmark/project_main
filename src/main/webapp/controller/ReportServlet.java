@@ -1,59 +1,31 @@
-package com.example.controller;
+    package com.example.controller;
 
-import com.example.dao.ReportDAO;
-import com.example.dao.BalanceSheetDAO;
-import com.example.dao.BranchDAO;
-import com.example.model.Branch;
-import com.example.model.BranchPerformance;
+    import com.example.dao.ReportDAO;
+    import com.example.model.BranchPerformance;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
-import java.io.IOException;
-import java.util.List;
-import java.math.BigDecimal;
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.*;
+    import java.io.IOException;
+    import java.math.BigDecimal;
+    import java.util.List;
 
-public class ReportServlet extends HttpServlet {
-    private ReportDAO reportDAO = new ReportDAO();
-    private BalanceSheetDAO bsDao = new BalanceSheetDAO();
-    private BranchDAO branchDao = new BranchDAO();
+    @WebServlet("/report")
+    public class ReportServlet extends HttpServlet {
+        private final ReportDAO dao = new ReportDAO();
 
-    @Override
-    protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws ServletException, IOException {
-        BigDecimal totalIncome = reportDAO.getTotalIncome();
-        BigDecimal totalExpense = reportDAO.getTotalExpense();
-        BigDecimal netProfit = totalIncome.subtract(totalExpense);
+        @Override
+        protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+                throws ServletException, IOException {
 
-        List<BranchPerformance> performance = reportDAO.getBranchPerformance();
+            BigDecimal totalIncome = dao.getTotalIncome();
+            BigDecimal totalExpense = dao.getTotalExpense();
+            List<BranchPerformance> branches = dao.getBranchPerformance();
 
-        // compute percentages for bar widths
-        for (BranchPerformance bp : performance) {
-            double incPct = totalIncome.compareTo(BigDecimal.ZERO) == 0 ? 0.0
-                    : bp.getIncome().doubleValue() * 100.0 / totalIncome.doubleValue();
-            double expPct = totalExpense.compareTo(BigDecimal.ZERO) == 0 ? 0.0
-                    : bp.getExpense().doubleValue() * 100.0 / totalExpense.doubleValue();
-            double profPct = netProfit.compareTo(BigDecimal.ZERO) == 0 ? 0.0
-                    : bp.getProfit().doubleValue() * 100.0 / (Math.abs(netProfit.doubleValue()) < 1e-9 ? 1 : netProfit.doubleValue());
-            bp.setIncomePct(incPct);
-            bp.setExpensePct(expPct);
-            bp.setProfitPct(profPct);
+            req.setAttribute("totalIncome", totalIncome);
+            req.setAttribute("totalExpense", totalExpense);
+            req.setAttribute("branches", branches);
+
+            req.getRequestDispatcher("/report.jsp").forward(req, resp);
         }
-
-        // balance sheet totals
-        BigDecimal assets = bsDao.getTotalByCategory("Asset");
-        BigDecimal liabilities = bsDao.getTotalByCategory("Liability");
-        BigDecimal equity = bsDao.getTotalByCategory("Equity");
-
-        List<Branch> branches = branchDao.findAll();
-
-        req.setAttribute("totalIncome", totalIncome);
-        req.setAttribute("totalExpense", totalExpense);
-        req.setAttribute("netProfit", netProfit);
-        req.setAttribute("performance", performance);
-        req.setAttribute("assets", assets);
-        req.setAttribute("liabilities", liabilities);
-        req.setAttribute("equity", equity);
-        req.setAttribute("branches", branches);
-
-        req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(req, resp);
     }
-}

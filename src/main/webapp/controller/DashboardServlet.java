@@ -24,15 +24,18 @@ public class DashboardServlet extends HttpServlet {
 
         List<BranchPerformance> performance = dao.getBranchPerformance();
 
+        // balance sheet example — adjust based on your DAO methods
+        BigDecimal assets = dao.getAssets();
+        BigDecimal liabilities = dao.getLiabilities();
+        BigDecimal equity = assets.subtract(liabilities);
+
         req.setAttribute("totalIncome", totalIncome);
         req.setAttribute("totalExpense", totalExpense);
         req.setAttribute("netProfit", netProfit);
         req.setAttribute("performance", performance);
-
-        // temporary placeholders so JSP won't break
-        req.setAttribute("assets", BigDecimal.ZERO);
-        req.setAttribute("liabilities", BigDecimal.ZERO);
-        req.setAttribute("equity", BigDecimal.ZERO);
+        req.setAttribute("assets", assets);
+        req.setAttribute("liabilities", liabilities);
+        req.setAttribute("equity", equity);
 
         req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
     }

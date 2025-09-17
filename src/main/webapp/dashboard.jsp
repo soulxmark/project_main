@@ -4,7 +4,7 @@
 <head>
   <title>Dashboard</title>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
+  <link rel="stylesheet" href="style/dashboard.css">
 </head>
 <body>
   <div class="container">
