@@ -8,7 +8,7 @@
     <display-name>FinancialApp</display-name>
 
     <welcome-file-list>
-        <welcome-file>report</welcome-file>
+        <welcome-file>dashboard.jsp</welcome-file>
     </welcome-file-list>
 
     <!-- Branch servlet -->
