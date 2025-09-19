@@ -8,8 +8,11 @@
 </head>
 <body>
   <div class="container">
-    <h1>Multi-Branch Financial Dashboard</h1>
-
+    <h1>NexusConsolidator</h1>
+     <div class="links">
+      <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>
+      <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Master Financial Statement</a>
+    </div>
     <div class="summary">
       <div class="card income">
         <h3>Total Income</h3>
@@ -65,10 +68,7 @@
       <div class="card equity"><h4>Equity</h4><p class="amount">${equity}</p></div>
     </div>
 
-    <div class="links">
-      <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>
-      <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Master Financial Statement</a>
-    </div>
+   
   </div>
 </body>
 </html>
