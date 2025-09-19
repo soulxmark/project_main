@@ -4,14 +4,14 @@
 <head>
   <title>Dashboard</title>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="style/dashboard.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/style/dashboard.css">
 </head>
 <body>
   <div class="container">
     <h1>NexusConsolidator</h1>
      <div class="links">
       <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>
-      <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Master Financial Statement</a>
+      <a class="btn" href="${pageContext.request.contextPath}/masterReport">Master Financial Statement</a>
     </div>
     <div class="summary">
       <div class="card income">
