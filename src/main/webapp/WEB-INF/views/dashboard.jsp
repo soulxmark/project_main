@@ -4,12 +4,16 @@
 <head>
   <title>Dashboard</title>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/style/dashboard.css">
 </head>
 <body>
   <div class="container">
     <h1>Multi-Branch Financial Dashboard</h1>
-
+    <!--Navigation bar-->
+ <div class="links">
+      <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>
+      <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Master Financial Statement</a>
+    </div>
     <div class="summary">
       <div class="card income">
         <h3>Total Income</h3>
@@ -70,10 +74,7 @@
       <div class="card equity"><h4>Equity</h4><p class="amount">${equity}</p></div>
     </div>
 
-    <div class="links">
-      <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>
-      <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Master Financial Statement</a>
-    </div>
+   
   </div>
 </body>
 </html>

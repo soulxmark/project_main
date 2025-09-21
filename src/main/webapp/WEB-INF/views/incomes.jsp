@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Incomes</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/style/dashboard.css">
 </head>
 <body>
   <div class="container">
