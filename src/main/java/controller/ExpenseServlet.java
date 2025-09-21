@@ -1,9 +1,9 @@
-package com.example.controller;
+package controller;
 
-import com.example.dao.ExpenseDAO;
-import com.example.dao.BranchDAO;
-import com.example.model.Expense;
-import com.example.model.Branch;
+import dao.ExpenseDAO;
+import dao.BranchDAO;
+import model.Expense;
+import model.Branch;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;

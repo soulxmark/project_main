@@ -1,7 +1,7 @@
-package com.example.dao;
+package dao;
 
-import com.example.model.Branch;
-import com.example.util.DBConnection;
+import model.Branch;
+import util.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
-package com.example.controller;
+package controller;
 
-import com.example.dao.BalanceSheetDAO;
-import com.example.dao.BranchDAO;
-import com.example.model.BalanceSheet;
-import com.example.model.Branch;
+import dao.BalanceSheetDAO;
+import dao.BranchDAO;
+import model.BalanceSheet;
+import model.Branch;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;

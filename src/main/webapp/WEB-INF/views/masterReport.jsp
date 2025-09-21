@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Master Financial Statement</title>
-  <link rel="stylesheet" href="style/masterReport.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
 </head>
 <body>
   <div class="container">

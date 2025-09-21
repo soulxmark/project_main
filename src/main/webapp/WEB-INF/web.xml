@@ -8,13 +8,13 @@
     <display-name>FinancialApp</display-name>
 
     <welcome-file-list>
-        <welcome-file>dashboard.jsp</welcome-file>
+        <welcome-file>report</welcome-file>
     </welcome-file-list>
 
     <!-- Branch servlet -->
     <servlet>
         <servlet-name>BranchServlet</servlet-name>
-        <servlet-class>com.example.controller.BranchServlet</servlet-class>
+        <servlet-class>controller.BranchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BranchServlet</servlet-name>
@@ -24,7 +24,7 @@
     <!-- Income servlet -->
     <servlet>
         <servlet-name>IncomeServlet</servlet-name>
-        <servlet-class>com.example.controller.IncomeServlet</servlet-class>
+        <servlet-class>controller.IncomeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IncomeServlet</servlet-name>
@@ -34,7 +34,7 @@
     <!-- Expense servlet -->
     <servlet>
         <servlet-name>ExpenseServlet</servlet-name>
-        <servlet-class>com.example.controller.ExpenseServlet</servlet-class>
+        <servlet-class>controller.ExpenseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ExpenseServlet</servlet-name>
@@ -44,7 +44,7 @@
     <!-- Balance servlet -->
     <servlet>
         <servlet-name>BalanceServlet</servlet-name>
-        <servlet-class>com.example.controller.BalanceSheetServlet</servlet-class>
+        <servlet-class>controller.BalanceSheetServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BalanceServlet</servlet-name>
@@ -54,7 +54,7 @@
     <!-- Report servlet (dashboard) -->
     <servlet>
         <servlet-name>ReportServlet</servlet-name>
-        <servlet-class>com.example.controller.ReportServlet</servlet-class>
+        <servlet-class>controller.ReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ReportServlet</servlet-name>

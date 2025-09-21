@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Branch Form</title>
-  <link rel="stylesheet" href="style/dashboard.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
 </head>
 <body>
   <div class="container">

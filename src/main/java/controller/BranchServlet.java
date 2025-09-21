@@ -1,11 +1,11 @@
-package com.example.controller;
+package controller;
 
-import com.example.dao.BranchDAO;
-import com.example.model.Branch;
+import dao.BranchDAO;
+import model.Branch;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+//import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 

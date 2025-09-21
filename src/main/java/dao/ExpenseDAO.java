@@ -1,10 +1,10 @@
-package com.example.dao;
+package dao;
 
-import com.example.model.Expense;
-import com.example.util.DBConnection;
+import model.Expense;
+import util.DBConnection;
 
 import java.sql.*;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.math.BigDecimal;

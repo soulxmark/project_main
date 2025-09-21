@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Branches</title>
-  <link rel="stylesheet" href="style/dashboard.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
 </head>
 <body>
   <div class="container">
@@ -11,7 +11,7 @@
     <a class="btn" href="${pageContext.request.contextPath}/branches?action=new">Create Branch</a>
     <table class="table">
       <tr><th>ID</th><th>Name</th><th>Location</th><th>Actions</th></tr>
-      <c:forEach var="b" items="${branch}">
+      <c:forEach var="b" items="${branches}">
         <tr>
           <td>${b.id}</td>
           <td>${b.name}</td>

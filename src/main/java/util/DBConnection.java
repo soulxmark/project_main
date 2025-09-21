@@ -1,8 +1,9 @@
-package com.example.util;
+package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DBConnection {
     // Update these for your local environment
@@ -19,6 +20,10 @@ public class DBConnection {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASS);
+        Connection conn = DriverManager.getConnection(URL, USER, PASS);
+        try (Statement stmt = conn.createStatement()) {
+            stmt.execute("SET search_path TO public");
+        }
+        return conn;
     }
 }

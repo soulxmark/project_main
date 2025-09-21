@@ -1,15 +1,15 @@
-package com.example.controller;
-
-import com.example.dao.IncomeDAO;
-import com.example.dao.BranchDAO;
-import com.example.model.Income;
-import com.example.model.Branch;
+package controller;
+// Make this case Method
+import dao.IncomeDAO;
+import dao.BranchDAO;
+import model.Income;
+import model.Branch;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
+//import java.util.List;
 import java.math.BigDecimal;
 
 public class IncomeServlet extends HttpServlet {

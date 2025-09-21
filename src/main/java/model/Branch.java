@@ -1,4 +1,4 @@
-package com.example.model;
+package model;
 
 public class Branch {
     private int id;
@@ -8,7 +8,9 @@ public class Branch {
     public Branch() {}
 
     public Branch(int id, String name, String location) {
-        this.id = id; this.name = name; this.location = location;
+        this.id = id;
+        this.name = name;
+        this.location = location;
     }
 
     public int getId() { return id; }
