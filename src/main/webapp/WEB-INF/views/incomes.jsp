@@ -11,7 +11,7 @@
     <a class="btn" href="${pageContext.request.contextPath}/incomes?action=new&branchId=${branch.id}">New Income</a>
     <table class="table">
       <tr><th>ID</th><th>Description</th><th>Amount</th><th>Date</th><th>Action</th></tr>
-      <c:forEach var="t" items="${incomes}">
+      <c:forEach var="t" items="${incomes}"> 
         <tr>
           <td>${t.id}</td>
           <td>${t.description}</td>
