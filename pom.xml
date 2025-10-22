@@ -20,6 +20,7 @@
     </properties>
 
     <dependencies>
+
         <!-- Servlet API (provided by Tomcat 7) -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -71,6 +72,15 @@
                     <path>/</path>
                     <port>8181</port>
                 </configuration>
+            </plugin>
+            <plugin>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2</version>
+            <configuration>
+                <server>Tomcat</server>
+                <port>9090</port>
+            </configuration>
             </plugin>
         </plugins>
     </build>
