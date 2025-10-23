@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Multi-Branch Financial Dashboard</h1>
+    <h1>Relx</h1>
     <!--Navigation bar-->
  <div class="links">
       <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>

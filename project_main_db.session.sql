@@ -29,3 +29,14 @@ CREATE TABLE balance_sheet (
     amount NUMERIC(14,2) NOT NULL,
     txn_date DATE DEFAULT CURRENT_DATE
 );
+
+
+
+SELECT 
+  b.id AS branch_id,
+  b.name AS branch_name,
+  b.location,
+  l.name_manager AS manager_fullname,
+  l.role AS manager_role
+FROM branch b
+LEFT JOIN login l ON b.manager_id = l.id;
