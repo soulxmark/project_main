@@ -68,6 +68,22 @@
             align-items: center;
             margin-bottom: 4rem;
         }
+        .hero-content {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: fadeRight 1.2s ease forwards;
+            }
+
+            @keyframes fadeRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            }
 
         .hero-content h3 {
             font-size: 0.9rem;
@@ -88,6 +104,7 @@
             line-height: 1.8;
             margin-bottom: 2rem;
             opacity: 0.9;
+            
         }
 
         .dashboard-btn {
@@ -116,6 +133,10 @@
         .hero-image {
             padding: 1rem;
             border-radius: 5px;
+        }
+        .hero-image:hover{
+            transform: scale(1.05);
+            transition: transform 0.s;
         }
 
        .hero-image img {

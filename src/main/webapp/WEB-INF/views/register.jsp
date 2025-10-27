@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneView - Sign Up</title>
+    <title>OneView - Register</title>
     <style>
         * {
             margin: 0;
@@ -171,32 +171,20 @@
         <h1>ONEVIEW</h1>
         <div class="signup-card">
             <h2>SIGN UP</h2>
-
-            <!-- JSP Form -->
-            <form action="SignupServlet" method="post">
+            <form action="registerServlet" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
                 </div>
-
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-
                 <button type="submit">SIGN UP</button>
             </form>
-
             <div class="login-link">
                 Already have an account? <a href="login.jsp">Log in</a>
             </div>
-
-            <% 
-                String message = request.getParameter("message");
-                if (message != null) { 
-            %>
-                <p style="color:red; margin-top:15px;"><%= message %></p>
-            <% } %>
         </div>
     </div>
 </body>

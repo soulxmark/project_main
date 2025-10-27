@@ -19,7 +19,7 @@
     
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
 
     <!-- Branch servlet -->
