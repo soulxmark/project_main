@@ -21,6 +21,16 @@
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
+     <!-- Product page servlet -->
+    <servlet>
+        <servlet-name>ProductsServlet</servlet-name>
+        <jsp-file>/WEB-INF/views/products.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ProductsServlet</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
 
     <!-- Branch servlet -->
     <servlet>
