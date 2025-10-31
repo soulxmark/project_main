@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneView - Financial Dashboard</title>
+    <title>Relx - Home</title>
      <link rel="stylesheet" href="${pageContext.request.contextPath}/style/landingpage/landingpage.css">
 </head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <a href="<%= request.getContextPath() %>/home" class="navbar-brand">Relx</a>
+        <a href="<%= request.getContextPath() %>/home" class="navbar-brand">
+            <img src="<%= request.getContextPath() %>/style/img/relx_logo.jpg" alt="Relx Logo" class="logoR">
+        </a>
         <ul class="navbar-menu">
             <li><a href="<%= request.getContextPath() %>/index">Home</a></li>
             <li><a href="<%= request.getContextPath() %>/products">Products</a></li>
-            <li><a href="<%= request.getContextPath() %>/branches">Locations</a></li>
             <li><a href="<%= request.getContextPath() %>/about">About</a></li>
             <li><a href="<%= request.getContextPath() %>/balances">-Sign In-</a></li>
         </ul>
@@ -57,25 +58,25 @@
                         <div class="feature-icon">
                             <span>🏢</span>
                         </div>
-                        <div class="feature-label">Branches</div>
+                        <div class="feature-label">Iced Orangeade</div>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <span>💵</span>
                         </div>
-                        <div class="feature-label">Income</div>
+                        <div class="feature-label">Iced Tropical Pineapple</div>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <span>💸</span>
                         </div>
-                        <div class="feature-label">Expenses</div>
+                        <div class="feature-label">Watermelon Ice</div>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">
                             <span>📈</span>
                         </div>
-                        <div class="feature-label">Balance</div>
+                        <div class="feature-label">Taro Scoop</div>
                     </div>
                 </div>
             </div>
