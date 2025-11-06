@@ -2,10 +2,8 @@ package controller;
 
 import dao.BranchDAO;
 import model.Branch;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-//import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
@@ -13,8 +11,9 @@ public class BranchServlet extends HttpServlet {
     private BranchDAO dao = new BranchDAO();
 
     @Override
-    protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
+
         try {
             if ("new".equals(action)) {
                 req.getRequestDispatcher("/WEB-INF/views/branch-form.jsp").forward(req, resp);
@@ -31,9 +30,7 @@ public class BranchServlet extends HttpServlet {
                 resp.sendRedirect(req.getContextPath() + "/branches");
                 return;
             }
-        } catch (Exception e) {
-            throw new ServletException(e);
-        }
+        } catch (Exception e) { throw new ServletException(e); }
 
         List<Branch> list = dao.findAll();
         req.setAttribute("branches", list);
@@ -41,14 +38,20 @@ public class BranchServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idStr = req.getParameter("id");
         String name = req.getParameter("name");
         String location = req.getParameter("location");
+        String role = req.getParameter("role");
+        String nameManager = req.getParameter("nameManager"); // exact match JSP
+
         Branch b = new Branch();
         if (idStr != null && !idStr.isEmpty()) b.setId(Integer.parseInt(idStr));
         b.setName(name);
         b.setLocation(location);
+        b.setRole(role);
+        b.setNameManager(nameManager);
+
         dao.save(b);
         resp.sendRedirect(req.getContextPath() + "/branches");
     }
