@@ -260,6 +260,8 @@
 
         .metrics-display {
             text-align: center;
+             width: 200px;
+            height: 300px;
         }
 
         .metric-icon {

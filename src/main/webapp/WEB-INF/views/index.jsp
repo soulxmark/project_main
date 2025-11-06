@@ -43,9 +43,8 @@
         <section class="about-section" id="about">
             <div class="dashboard-visual">
                 <div class="metrics-display">
-                    <div class="metric-icon">💰</div>
-                    <div class="connecting-line"></div>
-                    <div class="metric-icon">📊</div>
+                     <img src="<%= request.getContextPath() %>/style/img/banner.webp" alt="Relx Image">
+            </div>
                 </div>
             </div>
             <div class="about-content">
@@ -93,20 +92,20 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="<%= request.getContextPath() %>/home">Home</a></li>
-                    <li><a href="<%= request.getContextPath() %>/report">Dashboard</a></li>
-                    <li><a href="<%= request.getContextPath() %>/branches">Branches</a></li>
+                    <li><a href="<%= request.getContextPath() %>/report">Products</a></li>
+                    <li><a href="<%= request.getContextPath() %>/branches">About</a></li>
                     <li><a href="#about">About Us</a></li>
                 </ul>
             </div>
 
             <!-- Services -->
             <div class="footer-section">
-                <h3>Services</h3>
+                <h3>Mission Description</h3>
                 <ul>
-                    <li><a href="<%= request.getContextPath() %>/incomes">Income Management</a></li>
-                    <li><a href="<%= request.getContextPath() %>/expenses">Expense Tracking</a></li>
-                    <li><a href="<%= request.getContextPath() %>/balances">Balance Sheets</a></li>
-                    <li><a href="<%= request.getContextPath() %>/report">Financial Reports</a></li>
+                    <h3>To provide high-quality RELX filters that ensure a cleaner, safer, 
+                        and more satisfying vaping experience through innovation, safety, 
+                        and sustainability.
+                    </h3>
                 </ul>
             </div>
 

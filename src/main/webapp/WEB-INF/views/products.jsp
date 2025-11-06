@@ -10,13 +10,13 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <a href="<%= request.getContextPath() %>/home" class="navbar-brand">Relx</a>
+        <a href="<%= request.getContextPath() %>/home" class="navbar-brand">
+            <img src="<%= request.getContextPath() %>/style/img/relx_logo.jpg" alt="Relx Logo" class="logoR">
+        </a>
         <ul class="navbar-menu">
             <li><a href="<%= request.getContextPath() %>/index">Home</a></li>
             <li><a href="<%= request.getContextPath() %>/products">Products</a></li>
-            <li><a href="<%= request.getContextPath() %>/branches">Locations</a></li>
-            <li><a href="<%= request.getContextPath() %>/incomes">Incomes</a></li>
-            <li><a href="<%= request.getContextPath() %>/expenses">Expenses</a></li>
+            <li><a href="<%= request.getContextPath() %>/about">About</a></li>
             <li><a href="<%= request.getContextPath() %>/balances">-Sign In-</a></li>
         </ul>
     </nav>
@@ -195,38 +195,27 @@
     <footer class="footer">
         <div class="footer-content">
             <!-- About Section -->
-            <div class="footer-section">
-                <h3>About OneView</h3>
-                <p>
-                    A comprehensive financial dashboard platform designed to streamline your business operations and provide real-time insights into your financial performance.
-                </p>
-                <div class="social-links">
-                    <a href="#" class="social-icon">📘</a>
-                    <a href="#" class="social-icon">🐦</a>
-                    <a href="#" class="social-icon">💼</a>
-                    <a href="#" class="social-icon">📧</a>
-                </div>
-            </div>
+            
 
             <!-- Quick Links -->
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="<%= request.getContextPath() %>/home">Home</a></li>
-                    <li><a href="<%= request.getContextPath() %>/report">Dashboard</a></li>
-                    <li><a href="<%= request.getContextPath() %>/branches">Branches</a></li>
+                    <li><a href="<%= request.getContextPath() %>/report">Products</a></li>
+                    <li><a href="<%= request.getContextPath() %>/branches">About</a></li>
                     <li><a href="#about">About Us</a></li>
                 </ul>
             </div>
 
             <!-- Services -->
             <div class="footer-section">
-                <h3>Services</h3>
+                <h3>Mission Description</h3>
                 <ul>
-                    <li><a href="<%= request.getContextPath() %>/incomes">Income Management</a></li>
-                    <li><a href="<%= request.getContextPath() %>/expenses">Expense Tracking</a></li>
-                    <li><a href="<%= request.getContextPath() %>/balances">Balance Sheets</a></li>
-                    <li><a href="<%= request.getContextPath() %>/report">Financial Reports</a></li>
+                    <h3>To provide high-quality RELX filters that ensure a cleaner, safer, 
+                        and more satisfying vaping experience through innovation, safety, 
+                        and sustainability.
+                    </h3>
                 </ul>
             </div>
 
@@ -244,7 +233,7 @@
 
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-            <p>&copy; 2025 OneView Financial Dashboard. All rights reserved.</p>
+            <p>&copy; 2025 Relx inc. All rights reserved.</p>
             <p>Designed for Multi Branch Financial Consolidation</p>
         </div>
     </footer>

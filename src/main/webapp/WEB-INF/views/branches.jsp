@@ -26,12 +26,14 @@
     <!-- Branches Table -->
     <h2>All Branches</h2>
     <table class="table">
-      <tr><th>ID</th><th>Name</th><th>Location</th><th>Actions</th></tr>
+      <tr><th>ID</th><th>Name</th><th>Location</th><th>Role</th><th>Manager</th><th>Actions</th></tr>
       <c:forEach var="b" items="${branches}">
         <tr>
           <td>${b.id}</td>
           <td>${b.name}</td>
           <td>${b.location}</td>
+          <td>${b.role} </td>
+          <td>${b.name_manager}</td>
           <td>
             <a href="${pageContext.request.contextPath}/branches?action=edit&id=${b.id}">Edit</a> |
             <a href="${pageContext.request.contextPath}/branches?action=delete&id=${b.id}" onclick="return confirm('Delete branch?')">Delete</a> |
