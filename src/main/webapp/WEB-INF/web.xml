@@ -21,7 +21,8 @@
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
-     <!-- Product page servlet -->
+
+    <!-- Product page servlet -->
     <servlet>
         <servlet-name>ProductsServlet</servlet-name>
         <jsp-file>/WEB-INF/views/products.jsp</jsp-file>
@@ -52,15 +53,18 @@
         <url-pattern>/incomes</url-pattern>
     </servlet-mapping>
 
-    <!-- Expense servlet -->
-    <servlet>
-        <servlet-name>ExpenseServlet</servlet-name>
-        <servlet-class>controller.ExpenseServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ExpenseServlet</servlet-name>
-        <url-pattern>/expenses</url-pattern>
-    </servlet-mapping>
+    
+
+<!-- Expense servlet -->
+<servlet>
+    <servlet-name>ExpenseServlet</servlet-name>
+    <servlet-class>controller.ExpenseServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>ExpenseServlet</servlet-name>
+    <url-pattern>/expenses</url-pattern>
+</servlet-mapping>
+
 
     <!-- Balance servlet -->
     <servlet>
