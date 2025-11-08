@@ -2,7 +2,9 @@ package dao;
 
 import model.Expense;
 import util.DBConnection;
+
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.math.BigDecimal;
@@ -17,9 +19,13 @@ public class ExpenseDAO {
             ps.setInt(1, branchId);
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Expense e = new Expense(rs.getInt("id"), rs.getInt("branch_id"), rs.getString("description"),
-                            rs.getBigDecimal("amount"), rs.getDate("txn_date").toLocalDate());
-                    list.add(e);
+                    list.add(new Expense(
+                        rs.getInt("id"),
+                        rs.getInt("branch_id"),
+                        rs.getString("description"),
+                        rs.getBigDecimal("amount"),
+                        rs.getDate("txn_date").toLocalDate()
+                    ));
                 }
             }
         } catch (SQLException e) { throw new RuntimeException(e); }
@@ -33,8 +39,13 @@ public class ExpenseDAO {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return new Expense(rs.getInt("id"), rs.getInt("branch_id"), rs.getString("description"),
-                            rs.getBigDecimal("amount"), rs.getDate("txn_date").toLocalDate());
+                    return new Expense(
+                        rs.getInt("id"),
+                        rs.getInt("branch_id"),
+                        rs.getString("description"),
+                        rs.getBigDecimal("amount"),
+                        rs.getDate("txn_date").toLocalDate()
+                    );
                 }
             }
         } catch (SQLException e) { throw new RuntimeException(e); }

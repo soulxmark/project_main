@@ -19,6 +19,7 @@ public class ExpenseServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         String bid = req.getParameter("branchId");
+
         try {
             if ("new".equals(action)) {
                 int branchId = Integer.parseInt(bid);
@@ -29,6 +30,7 @@ public class ExpenseServlet extends HttpServlet {
                 int id = Integer.parseInt(req.getParameter("id"));
                 Expense t = dao.findById(id);
                 req.setAttribute("expense", t);
+                req.setAttribute("branchId", t.getBranchId());
                 req.getRequestDispatcher("/WEB-INF/views/expense-form.jsp").forward(req, resp);
                 return;
             } else if ("delete".equals(action)) {
@@ -61,8 +63,8 @@ public class ExpenseServlet extends HttpServlet {
         e.setDescription(desc);
         e.setAmount(amount);
         e.setTxnDate(txnDate);
-        dao.save(e);
 
+        dao.save(e);
         resp.sendRedirect(req.getContextPath() + "/expenses?branchId=" + branchId);
     }
 }

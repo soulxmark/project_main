@@ -17,7 +17,7 @@
             <li><a href="<%= request.getContextPath() %>/index">Home</a></li>
             <li><a href="<%= request.getContextPath() %>/products">Products</a></li>
             <li><a href="<%= request.getContextPath() %>/about">About</a></li>
-            <li><a href="<%= request.getContextPath() %>/balances">-Sign In-</a></li>
+            <li><a href="<%= request.getContextPath() %>/login">-Sign In-</a></li>
         </ul>
     </nav>
 

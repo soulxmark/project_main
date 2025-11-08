@@ -7,12 +7,10 @@
 </head>
 <body>
 <div class="container">
-    <h1>
-        <c:choose>
-            <c:when test="${not empty expense}">Edit Expense</c:when>
-            <c:otherwise>New Expense</c:otherwise>
-        </c:choose>
-    </h1>
+    <h1><c:choose>
+        <c:when test="${not empty expense}">Edit Expense</c:when>
+        <c:otherwise>New Expense</c:otherwise>
+    </c:choose></h1>
 
     <form method="post" action="${pageContext.request.contextPath}/expenses">
         <input type="hidden" name="id" value="${expense.id}" />
