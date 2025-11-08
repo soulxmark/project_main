@@ -43,7 +43,7 @@
         <section class="about-section" id="about">
             <div class="dashboard-visual">
                 <div class="metrics-display">
-                     <img src="<%= request.getContextPath() %>/style/img/banner.webp" alt="Relx Image">
+                     <img src="<%= request.getContextPath() %>/style/img/discount.jpg" alt="Relx Image">
             </div>
                 </div>
             </div>

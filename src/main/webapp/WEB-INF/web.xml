@@ -55,15 +55,15 @@
 
     
 
-<!-- Expense servlet -->
-<servlet>
-    <servlet-name>ExpenseServlet</servlet-name>
-    <servlet-class>controller.ExpenseServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>ExpenseServlet</servlet-name>
-    <url-pattern>/expenses</url-pattern>
-</servlet-mapping>
+    <!-- Expense servlet -->
+    <servlet>
+        <servlet-name>ExpenseServlet</servlet-name>
+        <servlet-class>controller.ExpenseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExpenseServlet</servlet-name>
+        <url-pattern>/expenses</url-pattern>
+    </servlet-mapping>
 
 
     <!-- Balance servlet -->

@@ -260,9 +260,24 @@
 
         .metrics-display {
             text-align: center;
-             width: 200px;
-            height: 300px;
+            width: 120px;
+            height: 130px;
         }
+
+        /* --- ADDED RULE TO REDUCE IMAGE SIZE --- */
+        .metrics-display img {
+            /* Set explicit width and height */
+            width: 80px; 
+            height: 80px;
+            /* Ensure the image is centered below */
+            display: block;
+            margin: 0 auto;
+            /* Optional: If you want the image to be circular like .metric-icon */
+            /* border-radius: 50%; */
+            /* Optional: To ensure the image covers the 80x80 area without stretching */
+            /* object-fit: cover; */
+        }
+
 
         .metric-icon {
             width: 80px;

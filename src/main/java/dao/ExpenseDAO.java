@@ -2,9 +2,7 @@ package dao;
 
 import model.Expense;
 import util.DBConnection;
-
 import java.sql.*;
-//import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.math.BigDecimal;
@@ -78,15 +76,5 @@ public class ExpenseDAO {
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException e) { throw new RuntimeException(e); }
-    }
-
-    public BigDecimal getTotalExpense() {
-        String sql = "SELECT COALESCE(SUM(amount),0) as total FROM expense";
-        try (Connection c = DBConnection.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) return rs.getBigDecimal("total");
-        } catch (SQLException e) { throw new RuntimeException(e); }
-        return BigDecimal.ZERO;
     }
 }

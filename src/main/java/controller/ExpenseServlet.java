@@ -9,7 +9,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 import java.math.BigDecimal;
 
 public class ExpenseServlet extends HttpServlet {
@@ -17,7 +16,7 @@ public class ExpenseServlet extends HttpServlet {
     private BranchDAO branchDao = new BranchDAO();
 
     @Override
-    protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         String bid = req.getParameter("branchId");
         try {
@@ -49,7 +48,7 @@ public class ExpenseServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idStr = req.getParameter("id");
         int branchId = Integer.parseInt(req.getParameter("branchId"));
         String desc = req.getParameter("description");
@@ -63,6 +62,7 @@ public class ExpenseServlet extends HttpServlet {
         e.setAmount(amount);
         e.setTxnDate(txnDate);
         dao.save(e);
+
         resp.sendRedirect(req.getContextPath() + "/expenses?branchId=" + branchId);
     }
 }

@@ -10,13 +10,7 @@
     <h1>Expenses - ${branch.name}</h1>
     <a class="btn" href="${pageContext.request.contextPath}/expenses?action=new&branchId=${branch.id}">Add Expense</a>
     <table class="table">
-        <tr>
-            <th>ID</th>
-            <th>Description</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th>Action</th>
-        </tr>
+        <tr><th>ID</th><th>Description</th><th>Amount</th><th>Date</th><th>Action</th></tr>
         <c:forEach var="e" items="${expenses}">
             <tr>
                 <td>${e.id}</td>
