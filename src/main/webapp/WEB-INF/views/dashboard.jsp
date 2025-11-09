@@ -13,6 +13,7 @@
  <div class="links">
       <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>
       <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Master Financial Statement</a>
+       <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Create Report</a>
     </div>
     <div class="summary">
       <div class="card income">
