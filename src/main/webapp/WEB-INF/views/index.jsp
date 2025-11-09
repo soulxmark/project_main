@@ -17,13 +17,12 @@
             <li><a href="<%= request.getContextPath() %>/index">Home</a></li>
             <li><a href="<%= request.getContextPath() %>/products">Products</a></li>
             <li><a href="<%= request.getContextPath() %>/about">About</a></li>
-            <li><a href="<%= request.getContextPath() %>/login">-Sign In-</a></li>
+            <li><a href="<%= request.getContextPath() %>/login">Sign In👤</a></li>
         </ul>
     </nav>
 
     <!-- Main Container -->
     <div class="container">
-        <!-- Hero Section -->
          <!-- Hero Section -->
         <section class="hero-section" id="home">
             <div class="hero-content">
@@ -93,7 +92,7 @@
                 <ul>
                     <li><a href="<%= request.getContextPath() %>/home">Home</a></li>
                     <li><a href="<%= request.getContextPath() %>/report">Products</a></li>
-                    <li><a href="<%= request.getContextPath() %>/branches">About</a></li>
+                    <li><a href="<%= request.getContextPath() %>/about">About</a></li>
                     <li><a href="#about">About Us</a></li>
                 </ul>
             </div>
