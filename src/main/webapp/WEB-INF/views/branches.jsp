@@ -35,7 +35,7 @@
                 <option value="Staff" <c:if test="${branch.role=='Staff'}">selected</c:if>>Staff</option>
             </select>
 
-            <label>Manager Name:</label>
+            <label> Name:</label>
             <input type="text" name="nameManager" value="${branch.nameManager}" style="margin-right: 10px;" 
                    <c:if test="${branch.role!='Manager'}">readonly</c:if>> 
 
