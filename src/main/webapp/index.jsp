@@ -43,7 +43,6 @@
             <div class="dashboard-visual">
                 <div class="metrics-display">
                      <img src="<%= request.getContextPath() %>/style/img/discount.jpg" alt="Relx Image">
-            </div>
                 </div>
             </div>
             <div class="about-content">
