@@ -9,20 +9,17 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <a href="<%= request.getContextPath() %>/home" class="navbar-brand">
-            <img src="<%= request.getContextPath() %>/style/img/relx_logo.jpg" alt="Relx Logo" class="logoR">
-        </a>
-        <ul class="navbar-menu">
-           <ul class="navbar-menu">
-            <li><a href="<%= request.getContextPath() %>/index">Home</a></li>
-            <li><a href="<%= request.getContextPath() %>/products">Products</a></li>
-            <li><a href="<%= request.getContextPath() %>/about">About</a></li>
-            <li><a href="<%= request.getContextPath() %>/login">Sign In👤</a></li>
-        </ul>
-        </ul>
-    </nav>
-
+   <nav class="navbar">
+            <a href="<%= request.getContextPath() %>/" class="navbar-brand">
+                <img src="<%= request.getContextPath() %>/style/img/relx_logo.jpg" alt="Relx Logo" class="logoR">
+            </a>
+            <ul class="navbar-menu">
+                    <li><a href="<%= request.getContextPath() %>/home">Home</a></li>
+                    <li><a href="<%= request.getContextPath() %>/products.jsp">Products</a></li>
+                    <li><a href="<%= request.getContextPath() %>/about.jsp">About</a></li>
+                    <li><a href="<%= request.getContextPath() %>/login.jsp">Sign In👤</a></li>
+            </ul>
+        </nav>
     <!-- Main Container -->
      <!-- Products Section -->
     <section class="products-section" id="products">

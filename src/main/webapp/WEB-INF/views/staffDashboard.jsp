@@ -1,15 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="model.User" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-    User user = (User) session.getAttribute("user");
-    if (user == null) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
+    model.User user = (model.User) session.getAttribute("user");
 %>
 <html>
 <head>
-  <title>Dashboard Admin</title>
+  <title>Dashboard</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/style/dashboard.css">
 </head>
@@ -39,14 +35,12 @@
   </script>
 
   <div class="container">
-    <h1>Relx Admin Dashboard</h1>
+    <h1>Relx Manager</h1>
     <!--Navigation bar-->
-    <h2>Welcome, <%= user.getNameManager() != null ? user.getNameManager() : user.getUsername() %>!</h2>
     <div class="links">
-      <a href="${pageContext.request.contextPath}/incomes?branchId=${b.id}">Incomes</a> |
-      <a href="${pageContext.request.contextPath}/expenses?branchId=${b.id}">Expenses</a> |
-      <a href="${pageContext.request.contextPath}/balances?branchId=${b.id}">Balance Items</a>
-  
+      <a class="btn" href="${pageContext.request.contextPath}/staffDashboard.jsp">Manage Branches</a>
+      <a class="btn" href="${pageContext.request.contextPath}/staffDashboard.jsp">Master Financial Statement</a>
+       <a class="btn" href="${pageContext.request.contextPath}/staffIncome">Create Report</a>
     </div>
     <div class="summary">
       <div class="card income">
@@ -107,6 +101,5 @@
       <div class="card equity"><h4>Equity</h4><p class="amount">${equity}</p></div>
     </div>
   </div>
-  
 </body>
 </html>

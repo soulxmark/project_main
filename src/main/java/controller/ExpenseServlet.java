@@ -3,13 +3,11 @@ package controller;
 import dao.ExpenseDAO;
 import dao.BranchDAO;
 import model.Expense;
-import model.Branch;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 import java.math.BigDecimal;
 
 public class ExpenseServlet extends HttpServlet {

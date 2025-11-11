@@ -11,40 +11,50 @@ body {
 }
 
 /* Navigation Bar */
-.navbar {
-    position: fixed;
-    color: #000;
-    backdrop-filter: blur(10px);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.logoR {
+            height: 40px;
+            width: auto;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        /* Navigation Bar */
+        .navbar {
+            color: #000;
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #000;
-    text-decoration: none;
-}
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
+        }
 
-.navbar-menu {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
+        .navbar-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-.navbar-menu a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
+        .navbar-menu a {
+            color: #000;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
 
-.navbar-menu a:hover {
-    color: #3498db;
-}
-
+        .navbar-menu a:hover {
+            color: #3498db;
+        }
+        .subnav-menu {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
 /* Main Container */
 .container {
     max-width: 1200px;
@@ -333,17 +343,25 @@ body {
         font-size: 2.5rem;
     }
 
-    .navbar {
-        flex-direction: column;
-        gap: 1rem;
-    }
+   
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-    .navbar-menu {
-        gap: 1rem;
-        font-size: 0.9rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+            .navbar-menu {
+                gap: 1rem;
+                font-size: 0.9rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .subnav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
 
     .products-grid {
         grid-template-columns: 1fr;
