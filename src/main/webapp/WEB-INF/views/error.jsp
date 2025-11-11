@@ -36,7 +36,12 @@
 <body>
     <div class="error-box">
         <h1>Oops! Something went wrong.</h1>
-        <p><%= exception == null ? "Unknown error occurred." : exception.getMessage() %></p>
+        <p>
+            <%-- Display servlet message if available, else show exception message --%>
+            <%= request.getAttribute("errorMessage") != null 
+                    ? request.getAttribute("errorMessage") 
+                    : (exception == null ? "Unknown error occurred." : exception.getMessage()) %>
+        </p>
         <a href="login.jsp">Go Back to Login</a>
     </div>
 </body>

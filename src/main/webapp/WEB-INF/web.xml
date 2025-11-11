@@ -1,93 +1,126 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
-            http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0">
+    <web-app xmlns="http://java.sun.com/xml/ns/javaee"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                                http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+            version="3.0">
 
-    <display-name>FinancialApp</display-name>
+        <display-name>Financial Management System</display-name>
 
-    <welcome-file-list>
-        <welcome-file>index</welcome-file>
-    </welcome-file-list>
+        <!-- Landing page (default /) -->
+        <welcome-file-list>
+            <welcome-file>index.jsp</welcome-file>
+        </welcome-file-list>
 
-    <!-- Home page servlet -->
-    <servlet>
-        <servlet-name>HomeServlet</servlet-name>
-        <jsp-file>/WEB-INF/views/index.jsp</jsp-file>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
+        <!-- Login Servlet -->
+        <servlet>
+            <servlet-name>LoginServlet</servlet-name>
+            <servlet-class>controller.LoginServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>LoginServlet</servlet-name>
+            <url-pattern>/login</url-pattern>
+        </servlet-mapping>
+        <!-- Branch servlet -->
+        <servlet>
+            <servlet-name>BranchServlet</servlet-name>
+            <servlet-class>controller.BranchServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>BranchServlet</servlet-name>
+            <url-pattern>/branches</url-pattern>
+        </servlet-mapping>
 
-    <!-- Product page servlet -->
-    <servlet>
-        <servlet-name>ProductsServlet</servlet-name>
-        <jsp-file>/WEB-INF/views/products.jsp</jsp-file>
-    </servlet>
-    
-    <servlet-mapping>
-        <servlet-name>ProductsServlet</servlet-name>
-        <url-pattern>/products</url-pattern>
-    </servlet-mapping>
+        <!-- Income servlet -->
+        <servlet>
+            <servlet-name>IncomeServlet</servlet-name>
+            <servlet-class>controller.IncomeServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>IncomeServlet</servlet-name>
+            <url-pattern>/incomes</url-pattern>
+        </servlet-mapping>
+        <!-- Expense servlet -->
+        <servlet>
+            <servlet-name>ExpenseServlet</servlet-name>
+            <servlet-class>controller.ExpenseServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ExpenseServlet</servlet-name>
+            <url-pattern>/expenses</url-pattern>
+        </servlet-mapping>
+        <!-- Balance servlet -->
+        <servlet>
+            <servlet-name>BalanceServlet</servlet-name>
+            <servlet-class>controller.BalanceSheetServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>BalanceServlet</servlet-name>
+            <url-pattern>/balances</url-pattern>
+        </servlet-mapping>
+        <!-- Report / Dashboard Servlet -->
+        <servlet>
+            <servlet-name>ReportServlet</servlet-name>
+            <servlet-class>controller.ReportServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ReportServlet</servlet-name>
+            <url-pattern>/report</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+            <servlet-name>ReportServlet</servlet-name>
+            <url-pattern>/adminDashboard</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+            <servlet-name>ReportServlet</servlet-name>
+            <url-pattern>/managerDashboard</url-pattern>
+        </servlet-mapping>
+        <servlet-mapping>
+            <servlet-name>ReportServlet</servlet-name>
+            <url-pattern>/staffDashboard</url-pattern>
+        </servlet-mapping>
+        <!--==================================================================== -->
+        <!-- Role Filter -->
+        <filter>
+            <filter-name>RoleFilter</filter-name>
+            <filter-class>util.RoleFilter</filter-class>
+        </filter>
 
-    <!-- Branch servlet -->
-    <servlet>
-        <servlet-name>BranchServlet</servlet-name>
-        <servlet-class>controller.BranchServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>BranchServlet</servlet-name>
-        <url-pattern>/branches</url-pattern>
-    </servlet-mapping>
+        <filter-mapping>
+            <filter-name>RoleFilter</filter-name>
+            <url-pattern>/adminDashboard</url-pattern>
+        </filter-mapping>
+        <filter-mapping>
+            <filter-name>RoleFilter</filter-name>
+            <url-pattern>/managerDashboard</url-pattern>
+        </filter-mapping>
+        <filter-mapping>
+            <filter-name>RoleFilter</filter-name>
+            <url-pattern>/staffDashboard</url-pattern>
+        </filter-mapping>
+        <filter-mapping>
+            <filter-name>RoleFilter</filter-name>
+            <url-pattern>/branches</url-pattern>
+        </filter-mapping>
+        <filter-mapping>
+            <filter-name>RoleFilter</filter-name>
+            <url-pattern>/incomes</url-pattern>
+        </filter-mapping>
+        <filter-mapping>
+            <filter-name>RoleFilter</filter-name>
+            <url-pattern>/expenses</url-pattern>
+        </filter-mapping>
+        <filter-mapping>
+            <filter-name>RoleFilter</filter-name>
+            <url-pattern>/balances</url-pattern>
+        </filter-mapping>
+        <filter-mapping>
+            <filter-name>RoleFilter</filter-name>
+            <url-pattern>/report</url-pattern>
+        </filter-mapping>
 
-    <!-- Income servlet -->
-    <servlet>
-        <servlet-name>IncomeServlet</servlet-name>
-        <servlet-class>controller.IncomeServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>IncomeServlet</servlet-name>
-        <url-pattern>/incomes</url-pattern>
-    </servlet-mapping>
+        <!-- Session Config -->
+        <session-config>
+            <session-timeout>30</session-timeout>
+        </session-config>
 
-    
-
-    <!-- Expense servlet -->
-    <servlet>
-        <servlet-name>ExpenseServlet</servlet-name>
-        <servlet-class>controller.ExpenseServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ExpenseServlet</servlet-name>
-        <url-pattern>/expenses</url-pattern>
-    </servlet-mapping>
-
-
-    <!-- Balance servlet -->
-    <servlet>
-        <servlet-name>BalanceServlet</servlet-name>
-        <servlet-class>controller.BalanceSheetServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>BalanceServlet</servlet-name>
-        <url-pattern>/balances</url-pattern>
-    </servlet-mapping>
-
-    <!-- Report servlet (dashboard) -->
-    <servlet>
-        <servlet-name>ReportServlet</servlet-name>
-        <servlet-class>controller.ReportServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ReportServlet</servlet-name>
-        <url-pattern>/report</url-pattern>
-    </servlet-mapping>
-
-    <session-config>
-        <session-timeout>30</session-timeout>
-    </session-config>
-
-</web-app>
+    </web-app>

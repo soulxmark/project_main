@@ -18,6 +18,7 @@ public class UserDAO {
 
             stmt.setString(1, username);
             stmt.setString(2, password);
+
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {

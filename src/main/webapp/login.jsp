@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OneView - Sign Up</title>
+    <title>Relx - Login</title>
     <style>
         * {
             margin: 0;
@@ -30,7 +30,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-image: url('https://images.unsplash.com/photo-1541480601022-2308c0f02487?w=1920&q=80');
+            background-image: url('img\relx.jpg');
             background-size: cover;
             background-position: center;
             z-index: -2;
@@ -73,7 +73,7 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .signup-card {
+        .login-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             padding: 3rem 3.5rem;
@@ -149,31 +149,46 @@
             transform: translateY(0);
         }
 
-        .login-link {
+        .error-message {
+            color: #d32f2f;
+            background: #ffebee;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .back-link {
             margin-top: 1.5rem;
             color: #666;
             font-size: 0.9rem;
         }
 
-        .login-link a {
+        .back-link a {
             color: #667eea;
             text-decoration: none;
             font-weight: 500;
         }
 
-        .login-link a:hover {
+        .back-link a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ONEVIEW</h1>
-        <div class="signup-card">
-            <h2>SIGN UP</h2>
+    <div class="container">  
+        <div class="login-card">
+            <h2>Sign In</h2>
 
-            <!-- JSP Form -->
-            <form action="SignupServlet" method="post">
+            <% 
+                String error = (String) request.getAttribute("error");
+                if (error != null) { 
+            %>
+                <div class="error-message"><%= error %></div>
+            <% } %>
+
+            <!-- Login Form -->
+            <form action="<%= request.getContextPath() %>/login" method="post">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
@@ -184,19 +199,14 @@
                     <input type="password" id="password" name="password" required>
                 </div>
 
-                <button type="submit">SIGN UP</button>
+                <button type="submit">LOGIN</button>
             </form>
 
-            <div class="login-link">
-                Already have an account? <a href="login.jsp">Log in</a>
+            <div class="back-link">
+                <a href="<%= request.getContextPath() %>/index.jsp">← Back to Home</a>
+                <br>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdfX4gqpxZvqlgNucE29UTWfzuv9cRuODFXtI7jDjM_2VPtoA/viewform">Request a Account</a>
             </div>
-
-            <% 
-                String message = request.getParameter("message");
-                if (message != null) { 
-            %>
-                <p style="color:red; margin-top:15px;"><%= message %></p>
-            <% } %>
         </div>
     </div>
 </body>

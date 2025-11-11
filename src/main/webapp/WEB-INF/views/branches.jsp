@@ -36,8 +36,9 @@
             </select>
 
             <label>Manager Name:</label>
-            <input type="text" name="nameManager" value="${branch.nameManager}" style="margin-right: 10px;" 
-                   <c:if test="${branch.role!='Manager'}">readonly</c:if>> 
+            <input type="text" name="nameManager" value="${branch.nameManager}" 
+                   style="margin-right: 10px;"
+                   readonly="${branch.role != 'Manager'}">
 
             <button type="submit" class="btn">
                 <c:choose>

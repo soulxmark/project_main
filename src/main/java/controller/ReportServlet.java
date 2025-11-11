@@ -1,31 +1,45 @@
 package controller;
 
-import dao.ReportDAO;
 import dao.BalanceSheetDAO;
 import dao.BranchDAO;
+import dao.ReportDAO;
 import model.Branch;
 import model.BranchPerformance;
+import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.util.List;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class ReportServlet extends HttpServlet {
+
     private ReportDAO reportDAO = new ReportDAO();
     private BalanceSheetDAO bsDao = new BalanceSheetDAO();
     private BranchDAO branchDao = new BranchDAO();
 
     @Override
-    protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+            throws ServletException, IOException {
+
+        HttpSession session = req.getSession(false);
+        User user = (session != null) ? (User) session.getAttribute("user") : null;
+        String role = (user != null) ? user.getRole() : null;
+
+        // If user is not logged in, show landing page
+        if (user == null) {
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
+            return;
+        }
+
+        // Only logged-in users continue
         BigDecimal totalIncome = reportDAO.getTotalIncome();
         BigDecimal totalExpense = reportDAO.getTotalExpense();
         BigDecimal netProfit = totalIncome.subtract(totalExpense);
 
         List<BranchPerformance> performance = reportDAO.getBranchPerformance();
 
-        // compute percentages for bar widths
         for (BranchPerformance bp : performance) {
             double incPct = totalIncome.compareTo(BigDecimal.ZERO) == 0 ? 0.0
                     : bp.getIncome().doubleValue() * 100.0 / totalIncome.doubleValue();
@@ -45,6 +59,7 @@ public class ReportServlet extends HttpServlet {
 
         List<Branch> branches = branchDao.findAll();
 
+        // set attributes
         req.setAttribute("totalIncome", totalIncome);
         req.setAttribute("totalExpense", totalExpense);
         req.setAttribute("netProfit", netProfit);
@@ -54,6 +69,23 @@ public class ReportServlet extends HttpServlet {
         req.setAttribute("equity", equity);
         req.setAttribute("branches", branches);
 
-        req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(req, resp);
+        // Forward based on role
+        String dashboardJSP;
+        switch (role.toLowerCase()) {
+            case "admin":
+                dashboardJSP = "/WEB-INF/views/adminDashboard.jsp";
+                break;
+            case "manager":
+                dashboardJSP = "/WEB-INF/views/managerDashboard.jsp";
+                break;
+            case "staff":
+                dashboardJSP = "/WEB-INF/views/staffDashboard.jsp";
+                break;
+            default:
+                resp.sendRedirect(req.getContextPath() + "/login.jsp");
+                return;
+        }
+
+        req.getRequestDispatcher(dashboardJSP).forward(req, resp);
     }
 }

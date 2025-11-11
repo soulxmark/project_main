@@ -1,19 +1,52 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="model.User" %>
+<%
+    User user = (User) session.getAttribute("user");
+    if (user == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <html>
 <head>
-  <title>Dashboard</title>
+  <title>Dashboard Admin</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/style/dashboard.css">
 </head>
 <body>
+  <!-- Top right user dropdown -->
+  <div style="position:absolute; top:10px; right:20px;">
+    <div style="position: relative; display: inline-block;">
+      <button style="background-color: #333; color: white; border: none; padding: 8px 12px; cursor: pointer;">
+        <%= user.getNameManager() %> ▼
+      </button>
+      <div style="display: none; position: absolute; right: 0; background: #f1f1f1; border-radius: 5px;">
+        <a href="#" style="display: block; padding: 5px 10px;">Login Info</a>
+        <a href="<%= request.getContextPath() %>/logout" style="display: block; padding: 5px 10px;">Sign Out</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.querySelector('div[style*="position: relative"] button');
+    const menu = document.querySelector('div[style*="position: absolute; right: 0"]');
+    btn.addEventListener('click', () => {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+    document.addEventListener('click', (e) => {
+        if(!btn.contains(e.target)) menu.style.display = 'none';
+    });
+  </script>
+
   <div class="container">
-    <h1>Relx</h1>
+    <h1>Relx Manager Dashboard</h1>
     <!--Navigation bar-->
- <div class="links">
+    <h2>Welcome, <%= user.getNameManager() != null ? user.getNameManager() : user.getUsername() %>!</h2>
+    <div class="links">
       <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>
       <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Master Financial Statement</a>
        <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Create Report</a>
+       <a href="logout">Logout⛔</a>
     </div>
     <div class="summary">
       <div class="card income">
@@ -67,15 +100,13 @@
   </tbody>
 </table>
 
-
     <h2>Balance Sheet Overview</h2>
     <div class="summary">
       <div class="card asset"><h4>Assets</h4><p class="amount">${assets}</p></div>
       <div class="card liability"><h4>Liabilities</h4><p class="amount">${liabilities}</p></div>
       <div class="card equity"><h4>Equity</h4><p class="amount">${equity}</p></div>
     </div>
-
-   
   </div>
+  
 </body>
 </html>

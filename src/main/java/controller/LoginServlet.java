@@ -3,53 +3,54 @@ package controller;
 import dao.UserDAO;
 import model.User;
 
-import java.io.IOException;
-import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
+import java.io.IOException;
 
-@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
+    private UserDAO userDAO = new UserDAO();
+
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
 
-        // Retrieve login credentials
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
 
-        // Create DAO and check credentials
-        UserDAO userDAO = new UserDAO();
-        User user = userDAO.login(username, password); // use "login" method from UserDAO
+        User user = userDAO.login(username, password);
 
         if (user != null) {
-            // Create session for logged-in user
-            HttpSession session = request.getSession();
-            session.setAttribute("username", user.getUsername());
+            // Save user in session
+            HttpSession session = req.getSession();
+            session.setAttribute("user", user);
             session.setAttribute("role", user.getRole());
-            session.setAttribute("nameManager", user.getNameManager());
 
-            // Redirect by role
+            // Redirect to dashboard based on role
             switch (user.getRole().toLowerCase()) {
                 case "admin":
-                    response.sendRedirect("dashboard.jsp");
+                    resp.sendRedirect(req.getContextPath() + "/adminDashboard");
                     break;
                 case "manager":
-                    response.sendRedirect("manager.jsp");
+                    resp.sendRedirect(req.getContextPath() + "/managerDashboard");
                     break;
                 case "staff":
-                    response.sendRedirect("staff.jsp");
+                    resp.sendRedirect(req.getContextPath() + "/staffDashboard");
                     break;
                 default:
-                    response.sendRedirect("error.jsp");
-                    break;
+                    resp.sendRedirect(req.getContextPath() + "/login.jsp");
             }
+
         } else {
-            // Invalid credentials — back to login
-            request.setAttribute("error", "Invalid username or password");
-            RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-            rd.forward(request, response);
+            // Invalid login
+            req.setAttribute("error", "Invalid username or password!");
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+            throws ServletException, IOException {
+        req.getRequestDispatcher("/login.jsp").forward(req, resp);
     }
 }
