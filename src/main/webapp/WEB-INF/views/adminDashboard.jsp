@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="model.User" %>
 <%
     User user = (User) session.getAttribute("user");
@@ -30,7 +31,12 @@
   <div class="container">
     <h1>Relx Admin Dashboard</h1>
     <h2>Welcome, <%= user.getNameManager() != null ? user.getNameManager() : user.getUsername() %>!</h2>
-
+     <div class="links">
+      <a class="btn" href="${pageContext.request.contextPath}/branches">Manage Branches</a>
+      <a class="btn" href="${pageContext.request.contextPath}/report?action=financial">Master Financial Statement</a>
+       <a class="btn" href="${pageContext.request.contextPath}/report?view=master">Create Report</a>
+       <a href="logout">Logout⛔</a>
+    </div>
     <div class="summary">
       <div class="card income">
         <h3>Total Income</h3>

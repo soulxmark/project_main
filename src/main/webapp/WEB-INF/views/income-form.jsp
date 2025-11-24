@@ -9,7 +9,7 @@
   <div class="container">
     <h1><c:choose><c:when test="${not empty income}">Edit Income</c:when><c:otherwise>New Income</c:otherwise></c:choose></h1>
     <form method="post" action="${pageContext.request.contextPath}/incomes">
-      <input type="hidden" name="id" value="${income.id}" />
+      <c:if test="${income.id > 0}"><input type="hidden" name="id" value="${income.id}" /></c:if>
       <input type="hidden" name="branchId" value="${param.branchId != null ? param.branchId : income.branchId}" />
       <label>Description</label><br/>
       <input type="text" name="description" value="${income.description}" required/><br/>

@@ -88,10 +88,10 @@
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="<%= request.getContextPath() %>/home">Home</a></li>
-                    <li><a href="<%= request.getContextPath() %>/report">Products</a></li>
-                    <li><a href="<%= request.getContextPath() %>/branches">About</a></li>
-                    <li><a href="#about">About Us</a></li>
+                     <li><a href="<%= request.getContextPath() %>/home">Home</a></li>
+                    <li><a href="<%= request.getContextPath() %>/products.jsp">Products</a></li>
+                    <li><a href="<%= request.getContextPath() %>/about.jsp">About</a></li>
+                    <li><a href="<%= request.getContextPath() %>/login.jsp">Sign In👤</a></li>
                 </ul>
             </div>
 

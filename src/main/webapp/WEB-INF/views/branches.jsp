@@ -18,7 +18,7 @@
             </c:choose>
         </h2>
         <form method="post" action="${pageContext.request.contextPath}/branches">
-            <c:if test="${not empty branch}">
+            <c:if test="${branch.id > 0}">
                 <input type="hidden" name="id" value="${branch.id}">
             </c:if>
 
@@ -37,8 +37,7 @@
 
             <label>Manager Name:</label>
             <input type="text" name="nameManager" value="${branch.nameManager}" 
-                   style="margin-right: 10px;"
-                   readonly="${branch.role != 'Manager'}">
+       style="margin-right: 10px;">
 
             <button type="submit" class="btn">
                 <c:choose>
